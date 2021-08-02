@@ -1,14 +1,54 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p>Rock paper scissors</p>
-    <script src="script.js">Rock</script>
+    <div class="container">
+        <h3>Choose your hand!</h3>
+        <div class="player buttons">
+            <button class="playerRock rockBtn" value="rock">
+                <img class="rockBtn button" value="rock" src="images/rock.png" alt="">
+            </button>
+            <div class="playerPaper" value="paper">
+                <img class="paperBtn button" value="paper" src="images/paper.png" alt="">
+            </div>
+            <div class="playerScissors" value="scissors">
+                <img class="scissorsBtn button" value="scissors" src="images/scissors.png" alt="">
+            </div>
+        </div>
+
+        <div class="center">
+            <p class="message">Start!</p>
+                <div class="score">
+                    <p class="pScore">Player: 0</p>
+                    <p class="cScore">Computer: 0</p>
+                </div>
+        </div>
+
+        <div class="computer">
+            <div class="compRock">
+                <img class="compRock" src="images/rock.png" alt="">
+            </div>
+            <div class="paper">
+                <img class="compPaper" src="images/paper.png" alt="">
+            </div>
+            <div class="compScissors">
+                <img class="comPscissors" src="images/scissors.png" alt="">
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
     
+    <script src="script.js"></script>
 </body>
 </html>
