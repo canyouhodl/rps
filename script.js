@@ -66,82 +66,81 @@ function show() {
 function playRound(playerHand) {
     const message = document.querySelector('.message');
     let computerHand = computerPlay();
-    let result = '';
 
     if(playerHand === 'rock' && computerHand === 'scissors' || 
     playerHand === 'paper' && computerHand === 'rock' ||
     playerHand === 'scissors' && computerHand === 'paper') {
-        if(computerHand === 'scissors') {
-            compRock.classList.add('hide');
-            compPaper.classList.add('hide');
-        }
-        if (computerHand === 'rock') {
-            compScissors.classList.add('hide');
-            compPaper.classList.add('hide');
-        }
-        if (computerHand === 'paper') {
-            compRock.classList.add('hide');
-            compScissors.classList.add('hide');
-        }
-        if(playerHand === 'rock') {
-            scissorsBtn.classList.add('hide');
-            paperBtn.classList.add('hide');
-        }
-        if (playerHand === 'paper') {
-            rockBtn.classList.add('hide');
-            scissorsBtn.classList.add('hide');
-        }
-        if (playerHand === 'scissors') {
-            rockBtn.classList.add('hide');
-            paperBtn.classList.add('hide');
-        }
         pScore++;
         setTimeout(function() { show(); }, 1000);
         playerScore.innerText = `Player: ${pScore}`;
         compScore.innerText = `Computer: ${cScore}`;
-
-        result = `You win! ${playerHand} beats ${computerHand}`;
         message.innerText = `You win! ${playerHand} beats ${computerHand}`;
+        if(computerHand === 'scissors') {
+            compRock.classList.add('hide');
+            compPaper.classList.add('hide');
+        }
+        else if (computerHand === 'rock') {
+            compScissors.classList.add('hide');
+            compPaper.classList.add('hide');
+        }
+        else if (computerHand === 'paper') {
+            compRock.classList.add('hide');
+            compScissors.classList.add('hide');
+        }
+
+        if(playerHand === 'rock') {
+            scissorsBtn.classList.add('hide');
+            paperBtn.classList.add('hide');
+        }
+        else if (playerHand === 'paper') {
+            rockBtn.classList.add('hide');
+            scissorsBtn.classList.add('hide');
+        }
+        else if (playerHand === 'scissors') {
+            rockBtn.classList.add('hide');
+            paperBtn.classList.add('hide');
+        }
 
         if (pScore === 5) {
             alert('You won the game! Reload the page to play again');
             disableButtons();
         }
     } 
-    if(computerHand === 'rock' && playerHand === 'scissors' || 
+    else if (computerHand === 'rock' && playerHand === 'scissors' || 
     computerHand === 'paper' && playerHand === 'rock' ||
     computerHand === 'scissors' && playerHand === 'paper') {
-        if(computerHand === 'scissors') {
-            compRock.classList.add('hide');
-            compPaper.classList.add('hide');
-        }
+        cScore++;
+        message.innerText = `You Lose! ${computerHand} beats ${playerHand}`;
+
+        playerScore.innerText = `Player: ${pScore}`;
+        compScore.innerText = `Computer: ${cScore}`;
+        setTimeout(function() { show(); }, 1000);
         if (computerHand === 'rock') {
             compScissors.classList.add('hide');
             compPaper.classList.add('hide');
         }
-        if (computerHand === 'paper') {
+        else if (computerHand === 'paper') {
             compRock.classList.add('hide');
             compScissors.classList.add('hide');
         }
+        else if (computerHand === 'scissors') {
+            compRock.classList.add('hide');
+            compPaper.classList.add('hide');
+        }
+
+
         if(playerHand === 'rock') {
             scissorsBtn.classList.add('hide');
             paperBtn.classList.add('hide');
         }
-        if (playerHand === 'paper') {
+        else if (playerHand === 'paper') {
             rockBtn.classList.add('hide');
             scissorsBtn.classList.add('hide');
         }
-        if (playerHand === 'scissors') {
+        else if (playerHand === 'scissors') {
             rockBtn.classList.add('hide');
             paperBtn.classList.add('hide');
         }
-        cScore++;
-        setTimeout(function() { show(); }, 1000);
-        playerScore.innerText = `Player: ${pScore}`;
-        compScore.innerText = `Computer: ${cScore}`;
-
-        result = `Lose! ${computerHand} beats ${playerHand}`;
-        message.innterText = result;
         
         if (cScore === 5) {
             buttons.disabled = true;
@@ -149,31 +148,27 @@ function playRound(playerHand) {
             disableButtons();
         }
     } 
-    if (playerHand === computerHand) {
+    else if (playerHand === computerHand) {
         if(computerHand === 'scissors') {
             compRock.classList.add('hide');
             compPaper.classList.add('hide');
+            rockBtn.classList.add('hide');
+            paperBtn.classList.add('hide');
         }
-        if (computerHand === 'rock') {
+        else if (computerHand === 'rock') {
             compScissors.classList.add('hide');
             compPaper.classList.add('hide');
+            scissorsBtn.classList.add('hide');
+            paperBtn.classList.add('hide');
         }
-        if (computerHand === 'paper') {
+        else if (computerHand === 'paper') {
             compRock.classList.add('hide');
             compScissors.classList.add('hide');
-        }
-        if(playerHand === 'rock') {
-            scissorsBtn.classList.add('hide');
-            paperBtn.classList.add('hide');
-        }
-        if (playerHand === 'paper') {
             rockBtn.classList.add('hide');
             scissorsBtn.classList.add('hide');
         }
-        if (playerHand === 'scissors') {
-            rockBtn.classList.add('hide');
-            paperBtn.classList.add('hide');
-        }
+
+
 
         setTimeout(function() { show(); }, 1000);
         playerScore.innerText = `Player: ${pScore}`;
